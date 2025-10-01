@@ -1,0 +1,66 @@
+SQL running on Microsoft SQL Management Studio.
+
+-- Create a database where all tables will be saved in. 
+CREATE DATABASE Brightlearn Tutorials:
+
+-- TO use the database created need to call it so that the changes are made in the correct database
+USE [Brightlearn Tutorials];
+
+-- Create table called employees where all the employees data will be saved in. Table will have seven (7) columns.
+CREATE TABLE employees(
+id INT PRIMARY KEY, -- employee id, Primary key is the unique identifier for each employee. 
+first_name VARCHAR (50), -- to store variable character strings. Names could not be the same lenght and VARCHAR allows for a variable numeber of characters to be stored. 
+last_name VARCHAR (50),
+department VARCHAR (50),
+salary INT,
+hire_date DATE, -- show the start date of the employee.
+city VARCHAR (50)
+);
+
+--Add the employees information into the employees table created.
+INSERT INTO employees
+(id, first_name, last_name,department,salary,hire_date,city)
+VALUES((1,'John','Doe','IT',55000, '2018-06-15','New York'),
+(2,'Jane','Smith','HR',48000, '2019-07-20','Chicago'),
+(3,'Mike','Johnson','Finance',60000, '2017-09-30','Los Angeles'),
+(4,'Sarah','Brown','IT',53000, '2021-03-25','New York'),
+(5,'David','White','Marketing',52000, '2016-04-10','San Francisco'),
+(6,'Emily','Davis','IT',62000, '2015-02-14','Chicago'),
+(7,'Robert','Wilson','Finance',59000, '2019-10-01','Houston'),
+(8,'Jessica','Moore','HR',51000, '2018-05-15','Los Angeles'),
+(9,'Daniel','Clark','Marketing',53000, '2022-06-01','Chicago'),
+(10,'Laura','Hall','IT',50000, '2020-08-10','San Francisco')
+;
+
+-- Retrieve all columns from the employees table.
+SELECT *
+FROM employees;
+
+--Find all the unique departments in the employee table.
+SELECT DISTINCT depertment -- return only unique values from the deparment column. 
+FROM employees;
+
+--Retrieve all employees' first and last names, ordered by salary in descending order.
+SELECT first_name,
+        last_name
+FROM employees
+ORDER BY salary DESC; -- returns employees first name and last name, will be ordered from the largest to smallest salary.
+
+--Retrieve the top 5 highest-paid employees 
+SELECT TOP 5 *
+FROM employees
+ORDER BY salary DESC;
+
+SELECT * -- same as above code. 
+FROM employees 
+ORDER BY salary DESC
+LIMIT 5;
+
+
+
+
+
+
+
+
+
